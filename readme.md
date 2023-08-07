@@ -11,7 +11,10 @@ Example:
 
 ```
 import { Database } from "doculite"
+
+// Creates sqlite.db file in the cwd
 const db = new Database();
+
 ```
 
 ## 2. Create Collections and Set Documents
