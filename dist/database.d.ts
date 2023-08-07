@@ -1,6 +1,6 @@
 import { CollectionReference } from "./collectionReference";
 import { MessageFn } from "./pubsub";
-import { ChangeEvent, UnSubFn, Collection, JsonStoreValue } from "./types";
+import { ChangeEvent, Collection, JsonStoreValue, UnSubFn } from "./types";
 export declare class Database {
     private db;
     private pubSub;
