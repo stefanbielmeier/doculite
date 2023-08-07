@@ -6,7 +6,7 @@
   "files": [
     "/dist"
   ],
-  "repository": "https://github.com/thenorthbay/docdb.git",
+  "repository": "https://github.com/thenorthbay/doculite.git",
   "license": "MIT",
   "dependencies": {
     "sqlite": "^5.0.1",
