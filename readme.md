@@ -1,7 +1,6 @@
 # Doculite
 
-DocuLite is an adapter that lets you use SQLite like Firebase Firestore. It's written in Typescript. It support listeners on documents, collections, and basic queries.
-Feedback & Bugs to thedoculite@gmail.com.
+DocuLite lets you use SQLite like Firebase Firestore. It's written in Typescript and an adapter on top of sqlite3 and sqlite. It support listeners on documents, collections, and basic queries. Feedback & Bugs to thedoculite@gmail.com.
 This is early work, so please treat it appropriately.
 
 # Current features
