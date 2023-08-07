@@ -1,0 +1,19 @@
+{
+  "name": "doculite",
+  "version": "1.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "repository": "https://github.com/thenorthbay/docdb.git",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite": "^5.0.1",
+    "sqlite3": "^5.1.6"
+  },
+  "peerDependencies": {
+    "sqlite": "^5.0.1",
+    "sqlite3": "^5.1.6"
+  }
+}
