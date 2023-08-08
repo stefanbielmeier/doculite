@@ -9,19 +9,18 @@ This is early work, so please treat it appropriately.
 
 Example:
 
-```
+```javascript
 import { Database } from "doculite"
 
 // Creates sqlite.db file in the cwd
 const db = new Database();
-
 ```
 
 ## 2. Create Collections and Set Documents
 
 Collections are created on first insertion of a document. They are represented by a SQLite Table.
 
-```
+```javascript
 // create ref to the doc. Doc ID optional.
 
 const usersRef = db.collection("users").doc("123");
@@ -31,24 +30,22 @@ const refWithoutId = db.collection("users").doc();
 
 await usersRef.set({ username: "John Doe", createdAt: "123", updatedAt: "123" });
 await refWithoutId.set({ username: "Jane Doe" });
-
 ```
 
 ## 3. Get a particular document
 
-```
+```javascript
 // define ref
 const usersRef = db.collection("users").doc("123");
 // get
 const user = await usersRef.get();
 // print
 console.log(user); // prints { username: "John Doe" };
-
 ```
 
 ## 4. Update Documents in Collections
 
-```
+```javascript
 // ref
 const usersRef = db.collection("users").doc("123");
 
@@ -63,12 +60,11 @@ await ref.set({ username: "DERP Doe", updatedAt: "345" }, { merge: true });
 
 await ref.set({ username: "DERP Doe", updatedAt: "345" }, { merge: false });
 // document in DB is now { username: "DERP Doe", updatedAt: "345" }
-
 ```
 
 ## 5. Delete Documents in Collection
 
-```
+```javascript
 const db = new Database();
 
 const ref = db.collection("users").doc("deletable");
@@ -80,13 +76,11 @@ await ref.delete();
 const doc = await ref.get();
 
 console.log(doc) // prints null
-
 ```
 
 ## 6. Listen to real-time updates of documents.
 
-```
-
+```javascript
 // ref to doc
 const ref = db.collection("users").doc("123");
 
@@ -100,13 +94,11 @@ await ref.set({ username: "SHEESH Doe", updatedAt: 2 });
 
 // unsub
 unsub();
-
 ```
 
 ## 7. Query Documents in a collection by equality comparison
 
-```
-
+```javascript
 const usersRef = db.collection("users");
 
 await usersRef.doc().set({ username: "Doculite", updatedAt: 234 });
@@ -118,7 +110,6 @@ const docs = await query.get();
 const user = docs[0]
 
 console.log(user.username) // prints `Doculite`
-
 ```
 
 # Potential roadmap:
@@ -131,7 +122,3 @@ console.log(user.username) // prints `Doculite`
 6. Queries with other comparison operators (<, >, >=, <=, contains, etc.)
 7. Queries for multiple variables (without indexes, probably)
 8. Queries with Full Text Search (without indexes, probably)
-
-```
-
-```
