@@ -1,6 +1,7 @@
 # Doculite
 
-DocuLite lets you use SQLite like Firebase Firestore. It's written in Typescript and an adapter on top of sqlite3 and sqlite. It support listeners on documents, collections, and basic queries. Feedback & Bugs to thedoculite@gmail.com.
+DocuLite lets you use SQLite like Firebase Firestore. It's written in Typescript and an adapter on top of sqlite3 and sqlite. It support listeners on documents, collections, and basic queries. Google Group for users to discuss issues, problems, feature requests: [Google Group](https://groups.google.com/g/doculite)
+
 This is early work, so please treat it appropriately.
 
 # Current features
@@ -10,7 +11,7 @@ This is early work, so please treat it appropriately.
 Example:
 
 ```javascript
-import { Database } from "doculite"
+import { Database } from "doculite";
 
 // Creates sqlite.db file in the cwd
 const db = new Database();
@@ -28,7 +29,11 @@ const refWithoutId = db.collection("users").doc();
 
 // Any valid Javascript object that can be parsed to valid JSON can be inserted as a document.
 
-await usersRef.set({ username: "John Doe", createdAt: "123", updatedAt: "123" });
+await usersRef.set({
+  username: "John Doe",
+  createdAt: "123",
+  updatedAt: "123",
+});
 await refWithoutId.set({ username: "Jane Doe" });
 ```
 
@@ -75,7 +80,7 @@ await ref.delete();
 
 const doc = await ref.get();
 
-console.log(doc) // prints null
+console.log(doc); // prints null
 ```
 
 ## 6. Listen to real-time updates of documents.
@@ -86,7 +91,7 @@ const ref = db.collection("users").doc("123");
 
 // snapshot listener returns unsubscribe function
 const unsub = ref.onSnapshot((doc) => {
-console.log("Omg the user doc is updating!", doc?.username);
+  console.log("Omg the user doc is updating!", doc?.username);
 });
 
 await ref.set({ username: "SHEESH Doe", updatedAt: 2 });
@@ -107,9 +112,9 @@ const query = usersRef.where("username", "Doculite");
 
 const docs = await query.get();
 
-const user = docs[0]
+const user = docs[0];
 
-console.log(user.username) // prints `Doculite`
+console.log(user.username); // prints `Doculite`
 ```
 
 # Potential roadmap:
